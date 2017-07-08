@@ -52,6 +52,7 @@ alias htmlconvert="texttohtml"
 
 # will create a timer with alarm at the end, need 1 arg, time in seconds
 # call it from terminal like $> timerr 100
+# will create a timer with alarm at the end, need 1 arg, time in seconds
 function timerr() {
     : ${1?"Usage: $0 <Time in seconds>"}
     again=''
@@ -62,7 +63,7 @@ function timerr() {
     done
     echo 'Timer done!'
     # alarm
-    for x in {1..20..1}; do
+    for x in {1..32..1}; do
         play -n synth 0.2 sin 440 &> /dev/null
     done
     echo "Restart same timer again? [y/...]"
