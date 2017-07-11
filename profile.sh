@@ -52,7 +52,6 @@ alias htmlconvert="texttohtml"
 
 # will create a timer with alarm at the end, need 1 arg, time in seconds
 # call it from terminal like $> timerr 100
-# will create a timer with alarm at the end, need 1 arg, time in seconds
 function timerr() {
     : ${1?"Usage: $0 <Time in seconds>"}
     again=''
