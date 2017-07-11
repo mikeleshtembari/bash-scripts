@@ -95,7 +95,7 @@ function timerr() {
         play -n synth 0.1 sin $freq &> /dev/null
         echo -en "\r$color$anim                 *** Timer done! ***    "
         cnt=$(( $cnt + 1 ))
-
+ 
         if [[ $freq == 440 ]]
         then
             freq=330
