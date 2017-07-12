@@ -11,35 +11,33 @@ function timerr() {
     anim="";
     val=$1
 
-
-    echo -e "\nPress a digit between 1 and 9 to add that amount of minutes to the timer.\nPress 'p' to pause.\nPress 'q' to quit timer.\n\nTimer started. \e[92m$(date '+%Y-%m-%d %H:%M:%S')\e[39m"
+    echo -e "\nPress \e[1mone digit between 1 and 9\e[21m to add that amount of minutes to the timer.\nPress \e[1mp\e[21m to pause.\nPress \e[1mq\e[21m to quit timer.\n\nTimer started. \e[92m$(date '+%Y-%m-%d %H:%M:%S')\e[39m"
 
     # timer
     for ((x = $val; x >= 0; --x))
     do
-        echo -en "\r$x        "
+        echo -en "\r$x                                 "
 
         read -t 0.1 -n 1 key && echo -en "\b "
 
 
-        if [[ $key = p ]]
+        if [[ $key == 'p' ]]
         then
-            echo -e "Timer paused. Press anything to continue it."
+            echo -e "\nTimer paused. Press anything to continue it."
             read -n 1
             echo -e "\n"
-
         fi
 
-        if [[ $key = q ]]
+        if [[ $key == 'q' ]]
         then
-            echo "Timer interrupted"
+            echo -e "\nTimer interrupted"
             return
         fi
 
-        if [[ $key > 0 && $key < 10 ]]
+        if [[ "$key" -ge '1' && "$key" -le '9' ]]
         then
-            val=$val+60*$key
-            x=$x+60*key
+            val=$(($val+60*$key))
+            x=$(($x+60*key))
         fi
 
         sleep 0.9
